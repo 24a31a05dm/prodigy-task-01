@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AuthGate | Secure Authentication</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="brand-panel">
+        <a class="brand" href="/" data-link>
+          <span class="brand-mark" aria-hidden="true">
+            <span class="shield-top"></span>
+            <span class="shield-dot"></span>
+          </span>
+          <span>
+            <strong>AuthGate</strong>
+            <small>Secure access system</small>
+          </span>
+        </a>
+
+        <div class="security-visual" aria-hidden="true">
+          <div class="vault-ring"></div>
+          <div class="vault-core"></div>
+          <div class="signal signal-one"></div>
+          <div class="signal signal-two"></div>
+          <div class="signal signal-three"></div>
+        </div>
+
+        <div class="status-stack">
+          <div>
+            <span class="status-dot"></span>
+            <span>Password hashing</span>
+          </div>
+          <div>
+            <span class="status-dot amber"></span>
+            <span>HTTP-only sessions</span>
+          </div>
+          <div>
+            <span class="status-dot coral"></span>
+            <span>Role-based access</span>
+          </div>
+        </div>
+      </aside>
+
+      <main class="workspace">
+        <header class="topbar">
+          <nav class="nav-links" aria-label="Primary navigation">
+            <a href="/dashboard" data-route="dashboard" data-link>Dashboard</a>
+            <a href="/admin" data-route="admin" data-admin-link data-link>Admin</a>
+          </nav>
+
+          <div class="session-chip" data-session-chip hidden>
+            <span data-user-initials></span>
+            <div>
+              <strong data-user-name></strong>
+              <small data-user-role></small>
+            </div>
+          </div>
+
+          <button class="ghost-button" type="button" data-logout hidden>Sign out</button>
+        </header>
+
+        <div class="toast" data-toast role="status" aria-live="polite" hidden></div>
+
+        <section class="auth-view" data-view="auth">
+          <div class="auth-copy">
+            <p class="eyebrow">Prodigy Task 01</p>
+            <h1>Secure user authentication</h1>
+            <p>
+              Register an account, log in with protected sessions, and access pages only after
+              successful authentication.
+            </p>
+          </div>
+
+          <form class="auth-card" data-auth-form>
+            <div class="mode-switch" role="tablist" aria-label="Authentication mode">
+              <button type="button" class="active" data-mode-button="login">Login</button>
+              <button type="button" data-mode-button="register">Register</button>
+            </div>
+
+            <div class="field-group" data-name-field hidden>
+              <label for="name">Full name</label>
+              <input id="name" name="name" autocomplete="name" placeholder="Aarav Sharma" />
+              <small data-error-for="name"></small>
+            </div>
+
+            <div class="field-group">
+              <label for="email">Email address</label>
+              <input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required />
+              <small data-error-for="email"></small>
+            </div>
+
+            <div class="field-group">
+              <label for="password">Password</label>
+              <input
+                id="password"
+                name="password"
+                type="password"
+                autocomplete="current-password"
+                placeholder="Minimum 8 characters"
+                required
+              />
+              <small data-error-for="password"></small>
+            </div>
+
+            <button class="primary-button" type="submit" data-submit-button>Login securely</button>
+            <p class="form-note" data-auth-note>First registered user automatically becomes admin.</p>
+          </form>
+        </section>
+
+        <section class="app-view" data-view="dashboard" hidden>
+          <div class="section-heading">
+            <p class="eyebrow">Protected route</p>
+            <h2>Dashboard</h2>
+          </div>
+
+          <div class="metrics-grid" data-stats></div>
+
+          <div class="content-grid">
+            <article class="panel">
+              <h3>Session activity</h3>
+              <ul class="activity-list" data-activity></ul>
+            </article>
+
+            <article class="panel account-panel">
+              <h3>Account</h3>
+              <dl>
+                <div>
+                  <dt>Name</dt>
+                  <dd data-account-name></dd>
+                </div>
+                <div>
+                  <dt>Email</dt>
+                  <dd data-account-email></dd>
+                </div>
+                <div>
+                  <dt>Role</dt>
+                  <dd data-account-role></dd>
+                </div>
+              </dl>
+            </article>
+          </div>
+        </section>
+
+        <section class="app-view" data-view="admin" hidden>
+          <div class="section-heading">
+            <p class="eyebrow">Admin route</p>
+            <h2>User management</h2>
+          </div>
+
+          <article class="panel table-panel">
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Role</th>
+                    <th>Created</th>
+                  </tr>
+                </thead>
+                <tbody data-users-table></tbody>
+              </table>
+            </div>
+          </article>
+        </section>
+      </main>
+    </div>
+
+    <script src="/app.js" type="module"></script>
+  </body>
+</html>

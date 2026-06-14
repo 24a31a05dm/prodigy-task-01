@@ -1,0 +1,24 @@
+{
+  "name": "secure-authentication-system",
+  "version": "1.0.0",
+  "description": "Prodigy Infotech Task 01 - secure user authentication with protected routes and role-based access.",
+  "type": "module",
+  "main": "server/index.js",
+  "scripts": {
+    "dev": "node --watch server/index.js",
+    "start": "node server/index.js",
+    "test": "node --test"
+  },
+  "keywords": [
+    "authentication",
+    "full-stack",
+    "session",
+    "rbac",
+    "prodigy-infotech"
+  ],
+  "author": "",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  }
+}
